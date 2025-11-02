@@ -1,6 +1,6 @@
 package com.learning.cloud.orderservice.service;
 
-import com.learning.cloud.orderservice.client.NotificationClient;
+//import com.learning.cloud.orderservice.client.NotificationClient;
 import com.learning.cloud.orderservice.dto.OrderRequest;
 import com.learning.cloud.orderservice.dto.OrderResponse;
 import com.learning.cloud.orderservice.entity.Order;
@@ -22,8 +22,8 @@ public class OrderService {
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 
-    @Autowired
-    private NotificationClient notificationClient;
+//    @Autowired
+//    private NotificationClient notificationClient;
 
     public OrderResponse create(OrderRequest orderRequest) {
         // 1. Tìm user
@@ -48,7 +48,7 @@ public class OrderService {
         orderDetailRepository.saveAll(details);
         savedOrder.setOrderDetails(details);
 
-        notificationClient.sendOrderSuccessMail("nguyenvinh17898@gmail.com");
+        //notificationClient.sendOrderSuccessMail("nguyenvinh17898@gmail.com");
 
         return OrderResponse.builder()
                 .id(savedOrder.getId())
